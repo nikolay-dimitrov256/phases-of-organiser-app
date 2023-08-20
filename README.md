@@ -1,5 +1,5 @@
 # phases-of-organiser-app
-Different phases of an organiser app
+### Different phases of an organiser app
 
 In this repository I'll upload my code of an organiser app with different levels of complexity.
 
