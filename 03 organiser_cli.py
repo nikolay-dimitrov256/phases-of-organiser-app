@@ -8,6 +8,8 @@ class Organiser:
     def __init__(self):
         self.todo_list, self.appointments, self.daily_done_tasks = self.load_save_file()
 
+        self.check_for_passed_appointments()
+
     def load_save_file(self):
         todo_list = []
         appointments = {}
@@ -18,21 +20,21 @@ class Organiser:
             data = file.read()
             if data:
                 date, data = data.split('#')
-                todo_list, appointments_data, daily_done_tasks = data.split('&')
+                todo_list_data, appointments_data, daily_done_tasks_data = data.split('&')
 
-                if todo_list:
-                    todo_list = todo_list.split('|')
+                if todo_list_data:
+                    todo_list = todo_list_data.split('|')
 
                 if appointments_data:
                     appointments_data = appointments_data.split('|')
                     for i in range(0, len(appointments_data), 3):
                         appointment = appointments_data[i]
-                        term = appointments_data[i+1]
-                        user_term = appointments_data[i+2]
+                        term = appointments_data[i + 1]
+                        user_term = appointments_data[i + 2]
                         appointments[appointment] = {'term': term, 'user_term': user_term}
 
-                if daily_done_tasks:
-                    daily_done_tasks = daily_done_tasks.split('|')
+                if daily_done_tasks_data:
+                    daily_done_tasks = daily_done_tasks_data.split('|')
                     new_day = self.check_for_new_day(date)
                     if new_day:
                         daily_done_tasks.clear()
@@ -263,8 +265,6 @@ class Organiser:
                 print('Please enter a valid command.')
 
     def run(self):
-        self.check_for_passed_appointments()
-
         while True:
             print('Enter [td] for to do list, [ap] for with appointments, [dt] for done tasks, or '
                   '[s] to save and exit:')
