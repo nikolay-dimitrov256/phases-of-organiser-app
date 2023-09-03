@@ -10,3 +10,5 @@ In this repository I'll upload my code of an organiser app with different levels
 **03 organiser_cli.py** - An organiser, working with a to do list, appointments with a due date, and completed tasks for the day for some (dis)satisfaction.
 
 **04 notifier.py** - A notifier app. It takes the appointments for the day from the save file, and gives the user a reminder when starting the app, and an hour before the appointment time. A good idea would be to make the app start automatically at the boot of the computer.
+
+**05 organiser_gui** - Same functionality as the cli organiser, but with a graphic user interface, and an added "Notes" module.
